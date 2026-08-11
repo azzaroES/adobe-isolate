@@ -77,6 +77,12 @@ NOTES
   and blocked; Illustrator 2024 then made zero outbound TCP connections, versus
   five before the block.
 
+  Also confirmed working against an Illustrator 2023 install on Windows. That
+  is the version-agnostic detection doing its job: the script globs
+  "Adobe Illustrator*" under the Adobe roots rather than naming a version, so
+  each yearly release needs no change to the script. Both versions installed
+  side by side are handled - every matching folder gets its own rule.
+
 
 ===============================================================================
  MACOS  -  adobe-watch-macos.sh
@@ -121,7 +127,8 @@ A NOTE ON THE "ADOBE BLOCKER" SCRIPTS YOU WILL FIND ONLINE
   roughly every two weeks.
 
 TESTING STATUS - READ THIS
-  The Windows .bat was verified end-to-end on the machine it was built on.
+  The Windows .bat was verified end-to-end on the machine it was built on,
+  against Illustrator 2023 and 2024.
   The macOS script was NOT - there is no Mac here to run it on. Its syntax is
   checked and its parsing was unit-tested against captured lsof output, but it
   has never executed against a live Adobe process. Treat the first run as a
